@@ -26,7 +26,8 @@ int main() {
     float pib2;
     float kmquadrados2;
 
-    // Nova variavel "N
+    // adicionado nova variavel: jogador irá escolher no menu.
+    int escolha;
 
 
     // --- 2. CADASTRO DAS CARTAS ---
@@ -53,45 +54,57 @@ int main() {
     scanf("%f", &kmquadrados2);
     printf("\n");
 
+// alteração do código para escolher no console ~~ Nova alteração ~~ 
 
-    // --- 3. COMPARAÇÃO E RESULTADOS ---
-    printf("        INICIO DA BATALHA         \n");
+printf("--- Escolha a Batalha ---\n");
+printf("Qual opção você quer usar para comparar:\n");
+printf("1. PIB (maior valor vence)\n");
+printf("2. Tamanho Em km² (Maior Valor Vence)\n");
+printf("Digite sua escolha:  ");
+scanf("%d", &escolha); // Iremos ler e guardar na variavel escolha??
+printf("\n");
 
-    // --- Comparando o PIB (Regra: MAIOR valor vence) ---
-    printf("--- Batalha de PIB ---\n");
-    // Se o pib1 for MAIOR que o pib2
-    if (pib1 > pib2) {
-        printf("Vencedor: %s, com PIB de %.f bilhoes!\n", nomeCidade1, pib1);
+
+// -- COMPARAR USANDO SWITCH -- 
+pintf("INICIO DA BATALHA\n");
+
+// O switch vai olhar o valor da variável 'escolha' e executar.
+    switch (escolha) {
+
+        // Caso o jogador tenha escolhido '1'
+        case 1:
+            printf("--- Batalha de PIB ---\n");
+            if (pib1 > pib2) {
+                printf("Vencedor: %s, com PIB de %.f bilhoes!\n", nomeCidade1, pib1);
+            }
+            else if (pib2 > pib1) {
+                printf("Vencedor: %s, com PIB de %.f bilhoes!\n", nomeCidade2, pib2);
+            }
+            else {
+                printf("Deu EMPATE no PIB!\n");
+            }
+            break; // Termina a execução 
+
+        // Caso o jogador tenha escolhido '2'
+        case 2:
+            printf("--- Batalha de Tamanho em Quilometros Quadrados ---\n");
+            if (kmquadrados1 > kmquadrados2) {
+                printf("Vencedor: %s, pois Seu Tamanho %.f km² e Maior!\n", nomeCidade1, kmquadrados1);
+            }
+            else if (kmquadrados2 > kmquadrados1) {
+                printf("Vencedor: %s, pois Seu Tamanho %.f km² e Maior!\n", nomeCidade2, kmquadrados2);
+            }
+            else {
+                printf("Deu EMPATE no Tamanho!\n");
+            }
+            break; // Termina a execução do switch
+
+        // Caso o jogador digite um número que não é 1 nem 2
+        default:
+            printf("Opcao invalida! Escolha 1 ou 2.\n");
+            break;
     }
-    // Senão, se o pib2 for MAIOR que o pib1
-    else if (pib2 > pib1) {
-        printf("Vencedor: %s, com PIB de %.f bilhoes!\n", nomeCidade2, pib2);
-    }
-    // Senão, é porque são iguais
-    else {
-        printf("Deu EMPATE no PIB!\n");
-    }
-    printf("\n"); // Pula uma linha
 
+    printf("\nFim de jogo!\n");
 
-    // --- Comparando a Quilometragem  (Maior valor vence) ---
-    printf("--- Batalha de Tamanho em Quilometros Quadrados ---\n");
-    // Se a kmquadrados1 for MENOR que a kmquadrados2
-    if (kmquadrados1 > kmquadrados2) {
-        printf("Vencedor: %s, pois Seu Tamanho %1.f km² é Maior!\n", nomeCidade1, kmquadrados1);
-    }
-    // Senão, se a densidade2 for MENOR que a densidade1
-    else if (kmquadrados2 > kmquadrados1) {
-        printf("Vencedor: %s, pois Seu Tamanho %1.f km² é Maior!\n", nomeCidade2, kmquadrados2);
-    }
-    // Senão, é porque são iguais
-    else {
-        printf("Deu EMPATE na Tamanho!\n");
-    }
-    printf("\n");
-
-
-    printf("Fim de jogo!\n");
-
-    return 0; // Indica que o programa terminou com sucesso
-}
+    return 0;
