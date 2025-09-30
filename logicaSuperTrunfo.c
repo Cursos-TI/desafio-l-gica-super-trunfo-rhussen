@@ -1,43 +1,47 @@
-#include <stdio.h>
-
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+#include <stdio.h> // Biblioteca para usar o comando printf (para mostrar texto na tela)
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    // --- Parte 1: Definindo as Cartas ---
+    // CRIAMOS CARTAS SEM PRECISAR DO USUÁRIO DIGITAR
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    // Carta 1: Brasil
+    char nomePais1[] = "Brasil";
+    int populacao1 = 215; // Em milhões
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    // Carta 2: Argentina
+    char nomePais2[] = "Argentina";
+    int populacao2 = 45;  // Em milhões
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    // Mostra as cartas na tela para o jogador saber com o que está jogando
+    printf("--- Super Trunfo: Batalha de Paises ---\n");
+    printf("Carta 1: %s - Populacao: %d milhoes\n", nomePais1, populacao1);
+    printf("Carta 2: %s - Populacao: %d milhoes\n", nomePais2, populacao2);
+    printf("---------------------------------------\n\n");
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    // --- Parte 2: A Comparação (A Lógica do Jogo) ---
+    // Agora vamos usar if/else para ver qual população é maior.
 
-    return 0;
+    printf("Quem tem a maior populacao?\n");
+
+    // SE a população do país 1 for MAIOR QUE a população do país 2...
+    if (populacao1 > populacao2) {
+        // ...então, execute o código que está aqui dentro.
+        printf("Vencedor: %s!\n", nomePais1);
+    }
+    // SENÃO SE a população do país 2 for MAIOR QUE a do país 1...
+    else if (populacao2 > populacao1) {
+        // ...então, execute este outro código.
+        printf("Vencedor: %s!\n", nomePais2);
+    }
+    // SENÃO (se nenhuma das condições acima for verdade, é porque são iguais)...
+    else {
+        // ...execute este código para o caso de empate.
+        printf("Deu empate!\n");
+    }
+
+    printf("\nFim de jogo!\n");
+
+    return 0; // Avisa o sistema que o programa terminou com sucesso
 }
