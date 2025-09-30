@@ -66,7 +66,7 @@ printf("\n");
 
 
 // -- COMPARAR USANDO SWITCH -- 
-pintf("INICIO DA BATALHA\n");
+printf("INICIO DA BATALHA\n");
 
 // O switch vai olhar o valor da variável 'escolha' e executar.
     switch (escolha) {
