@@ -57,7 +57,7 @@ int main() {
 // alteração do código para escolher no console ~~ Nova alteração ~~ 
 
 printf("--- Escolha a Batalha ---\n");
-printf("Qual opção você quer usar para comparar:\n");
+printf("Qual opção você quer usar para comparar?\n");
 printf("1. PIB (maior valor vence)\n");
 printf("2. Tamanho Em km² (Maior Valor Vence)\n");
 printf("Digite sua escolha:  ");
@@ -108,3 +108,5 @@ pintf("INICIO DA BATALHA\n");
     printf("\nFim de jogo!\n");
 
     return 0;
+
+}
