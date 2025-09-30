@@ -1,47 +1,97 @@
-#include <stdio.h> // Biblioteca para usar o comando printf (para mostrar texto na tela)
+#include <stdio.h> 
+
+// SUMÁRIO //
+
+// %d: Imprime um inteiro no formato decimal.
+ // %i: Equivalente a %d.
+ // %f: Imprime um número de ponto flutuante no formato padrão.
+ // %e: Imprime um número de ponto flutuante na notação científica.
+ // %c: Imprime um único caractere.
+ //%s: Imprime uma cadeia (string) de caracteres.
+
+ //*******************************************************************************//
+
 
 int main() {
+    // --- 1. DEFINIÇÃO DAS VARIÁVEIS ---
+    // Vamos usar menos atributos para facilitar.
 
-    // --- Parte 1: Definindo as Cartas ---
-    // CRIAMOS CARTAS SEM PRECISAR DO USUÁRIO DIGITAR
+    // Variáveis da Carta 1
+    char nomeCidade1[50];
+    float pib1; // utilizar número inteiro para facilidar, resultado em Milhões.
+    float kmquadrados1; // Número inteiro para simplificar
 
-    // Carta 1: Brasil
-    char nomePais1[] = "Brasil";
-    int populacao1 = 215; // Em milhões
+    // Variáveis da Carta 2
+    char nomeCidade2[50];
+    float pib2;
+    float kmquadrados2;
 
-    // Carta 2: Argentina
-    char nomePais2[] = "Argentina";
-    int populacao2 = 45;  // Em milhões
-
-    // Mostra as cartas na tela para o jogador saber com o que está jogando
-    printf("--- Super Trunfo: Batalha de Paises ---\n");
-    printf("Carta 1: %s - Populacao: %d milhoes\n", nomePais1, populacao1);
-    printf("Carta 2: %s - Populacao: %d milhoes\n", nomePais2, populacao2);
-    printf("---------------------------------------\n\n");
+    // Nova variavel "N
 
 
-    // --- Parte 2: A Comparação (A Lógica do Jogo) ---
-    // Agora vamos usar if/else para ver qual população é maior.
+    // --- 2. CADASTRO DAS CARTAS ---
+    printf("--- Cadastro da Carta 1 ---\n"); // Cadastro simples sem espaço
+    printf("Nome da cidade (sem espacos): ");
+    scanf("%s", nomeCidade1);
 
-    printf("Quem tem a maior populacao?\n");
+    printf("Valor do PIB (em bilhoes): ");
+    scanf("%f", &pib1);
 
-    // SE a população do país 1 for MAIOR QUE a população do país 2...
-    if (populacao1 > populacao2) {
-        // ...então, execute o código que está aqui dentro.
-        printf("Vencedor: %s!\n", nomePais1);
+    printf("Tamanho em Quilometro Quadrado: ");
+    scanf("%f", &kmquadrados1);
+    printf("\n"); 
+
+
+    printf("--- Cadastro da Carta 2 ---\n");
+    printf("Nome da outra cidade (sem espacos): ");
+    scanf("%s", nomeCidade2);
+
+    printf("Valor do PIB (em bilhoes): ");
+    scanf("%f", &pib2);
+
+    printf("Tamanho em Quiliometros Quadrados: ");
+    scanf("%f", &kmquadrados2);
+    printf("\n");
+
+
+    // --- 3. COMPARAÇÃO E RESULTADOS ---
+    printf("        INICIO DA BATALHA         \n");
+
+    // --- Comparando o PIB (Regra: MAIOR valor vence) ---
+    printf("--- Batalha de PIB ---\n");
+    // Se o pib1 for MAIOR que o pib2
+    if (pib1 > pib2) {
+        printf("Vencedor: %s, com PIB de %.f bilhoes!\n", nomeCidade1, pib1);
     }
-    // SENÃO SE a população do país 2 for MAIOR QUE a do país 1...
-    else if (populacao2 > populacao1) {
-        // ...então, execute este outro código.
-        printf("Vencedor: %s!\n", nomePais2);
+    // Senão, se o pib2 for MAIOR que o pib1
+    else if (pib2 > pib1) {
+        printf("Vencedor: %s, com PIB de %.f bilhoes!\n", nomeCidade2, pib2);
     }
-    // SENÃO (se nenhuma das condições acima for verdade, é porque são iguais)...
+    // Senão, é porque são iguais
     else {
-        // ...execute este código para o caso de empate.
-        printf("Deu empate!\n");
+        printf("Deu EMPATE no PIB!\n");
     }
+    printf("\n"); // Pula uma linha
 
-    printf("\nFim de jogo!\n");
 
-    return 0; // Avisa o sistema que o programa terminou com sucesso
+    // --- Comparando a Quilometragem  (Maior valor vence) ---
+    printf("--- Batalha de Tamanho em Quilometros Quadrados ---\n");
+    // Se a kmquadrados1 for MENOR que a kmquadrados2
+    if (kmquadrados1 > kmquadrados2) {
+        printf("Vencedor: %s, pois Seu Tamanho %1.f km² é Maior!\n", nomeCidade1, kmquadrados1);
+    }
+    // Senão, se a densidade2 for MENOR que a densidade1
+    else if (kmquadrados2 > kmquadrados1) {
+        printf("Vencedor: %s, pois Seu Tamanho %1.f km² é Maior!\n", nomeCidade2, kmquadrados2);
+    }
+    // Senão, é porque são iguais
+    else {
+        printf("Deu EMPATE na Tamanho!\n");
+    }
+    printf("\n");
+
+
+    printf("Fim de jogo!\n");
+
+    return 0; // Indica que o programa terminou com sucesso
 }
